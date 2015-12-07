@@ -5,6 +5,12 @@
   (Example: Waterbottle is a rotation of erbottleWat.)
 """
 
+def checkRotation(s1, s2):
+    s3 = s2 + s2    #the middle will form the proper word again
+                    #erbottleWaterbottleWat as shown.
+
+    return isSubstring(s1, s3)
+
 
 
 
