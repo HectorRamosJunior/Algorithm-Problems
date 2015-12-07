@@ -1,6 +1,6 @@
 """
 Hash Table Implementation
-Hector Ramos, 12/7/2015
+Hector Ramos, 12/6/2015
 """
 class Node(object):
     def __init__(self, key, value):

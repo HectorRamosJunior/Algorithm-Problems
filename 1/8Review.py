@@ -83,11 +83,10 @@ printMatrix(matrix)
 printMatrix(zeroMatrix(matrix))
 printMatrix(zeroMatrix2(matrix))
 
-matrix1 = [0 for x in xrange(5)]
-matrix2 = [[0 for x in xrange(5)]]
+matrix1 = [[x+1 for x in xrange(5)]]
+matrix1[0][3] = 0
 
 printMatrix(matrix1)
-printMatrix(matrix2)
 
 printMatrix(zeroMatrix(matrix1))
-printMatrix(zeroMatrix2(matrix2))
+
