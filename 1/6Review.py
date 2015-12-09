@@ -5,7 +5,11 @@
   You can assume the string only has Upper and Lowercase letters (a-z).
 """
 
+#Uses a string buffer list for building efficiency
 def compressString(string):
+    if len(string) <= 1:
+      return string
+
     strList = []
     charCount = 0
 

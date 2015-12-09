@@ -3,6 +3,8 @@
   write a method to rotate the image by 90 degrees. Can you do this in place?
 """
 
+#Rotates elements in a double list [matrix] by layer
+#Assumes the matrix is NxN
 def rotateMatrix(m, rotation):
     if len(m) <= 1:
         return m

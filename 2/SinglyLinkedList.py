@@ -25,3 +25,15 @@ class Node(object):
             node = node.next
 
         print 
+
+    def getListLength(self):
+        length = 1
+
+        node = self.next
+        while node:
+            length += 1 
+            node = node.next
+
+        return length
+
+

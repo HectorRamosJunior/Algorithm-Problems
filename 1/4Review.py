@@ -4,17 +4,22 @@
   The palindrome does not have to be limited to dictionary words.
 """
 
+#Gets a character dictionary of the string
+#If string is even, every character count must be even
+#Otherwise, one odd character count is allowed.
 def permofPal(string):
     if len(string) < 2:
         return False
 
     charDict = getCharDict(string)
 
+    #Sets placeholder if one odd is allowed
     if len(string)%2 == 0:
         oddCheck = False
     else:
         oddCheck = True
 
+    #Checks dictionary for even counts of characters
     for c in charDict:
         if charDict[c] % 2 != 0:
             if not oddCheck:

@@ -3,7 +3,9 @@
         Followup:
         How would you solve this without a tempbuffer?
 """
+from SinglyLinkedList import Node
 
+#Iterates through list, uses hash set for value
 def removeDuplicates(root):
     hashSet = set()
     hashSet.add(root.value)
@@ -20,7 +22,8 @@ def removeDuplicates(root):
 
         node = node.next
 
-
+#Checks every element in list against the currentNode
+#Using a nested while loop
 def removeDuplicates2(root):
     while root:
         runnerNode = root.next
@@ -37,7 +40,6 @@ def removeDuplicates2(root):
         root = root.next
 
 
-from SinglyLinkedList import Node
 
 headNode = Node(1, Node(2, 
                     Node(3, 

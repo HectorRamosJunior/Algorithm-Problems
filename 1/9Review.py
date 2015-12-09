@@ -9,7 +9,12 @@ def checkRotation(s1, s2):
     s3 = s2 + s2    #the middle will form the proper word again
                     #erbottleWaterbottleWat as shown.
 
-    return isSubstring(s1, s3)
+    return (s1 in s3) #Basically isSubstring (<3 Python)
+
+
+print checkRotation("Waterbottle", "erbottleWat")
+print checkRotation("Nope", "Yerp")
+
 
 
 

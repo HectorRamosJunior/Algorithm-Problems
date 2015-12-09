@@ -2,7 +2,10 @@
         Implement an algorithm to delete a node in the middle of 
         a singly linked list given access only to that node
 """
+from SinglyLinkedList import Node
 
+#A cute trick, just copies the next node in the list
+#removes the next node in the list, "deletes" itself
 def removeNode(node):
     if node.next:
         node.value = node.next.value
@@ -10,8 +13,6 @@ def removeNode(node):
     else:
         return None
 
-
-from SinglyLinkedList import Node 
 
 headNode = Node(1, Node(2,
                     Node(3, 

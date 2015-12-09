@@ -3,6 +3,7 @@
   What if you cannot use additional data structures?
 """
 
+#Uses a hash set 
 def isUnique(string):
     uniqueSet = set()
 
@@ -14,6 +15,7 @@ def isUnique(string):
     return True
 
 
+#Uses a nested loop to check each character against another
 def isUnique2(string):
     for i in xrange(len(string)):
         for j in xrange(len(string)):

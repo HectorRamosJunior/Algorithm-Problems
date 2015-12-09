@@ -2,7 +2,10 @@
         Implement an algorithm to find the kth to last element 
         of a singly linked list.
 """
+from SinglyLinkedList import Node
 
+#Uses a runner node k elements ahead; when runnerNode stops
+#The slow node will have reached the kth element desired
 def kthLastElement(root, k):
     if k < 1:
         return None
@@ -23,7 +26,6 @@ def kthLastElement(root, k):
             root = root.next
 
 
-from SinglyLinkedList import Node 
 
 headNode = Node(1, Node(2,
                     Node(3, 

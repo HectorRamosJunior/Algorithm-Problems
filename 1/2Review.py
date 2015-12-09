@@ -2,9 +2,9 @@
   Given two strings, write a method to decide if one is a 
   permutation of the other.
 """
-
+#Makes two dictionaries of each string, checks character counts
 def checkPermutation(s1, s2):
-    if len(s1) != len(s2):
+    if len(s1) != len(s2): #If seperate lengths, always false
         return False
 
     d1 = getCharDict(s1)
@@ -15,7 +15,7 @@ def checkPermutation(s1, s2):
     else:
         return False
 
-
+#Returns dictionary of the characters in the string and count
 def getCharDict(string):
     d = {}
 

@@ -5,7 +5,11 @@
     the elements less than x. 
     Example: 3>5>8>5>10>2>1 [Pivot: 5] Output : 3>1>2>10>5>5>8
 """
+from SinglyLinkedList import Node
 
+#Forms two stacks while iterating the list:
+#Elements smaller than the pivot, and elements greater or equal the pivot
+#Then appends the smaller list to the bigger list (if both available) 
 def partitionList(root, pivot):
     leftHeadNode = None
     rightHeadNode = None
@@ -43,7 +47,6 @@ def partitionList(root, pivot):
         return  rightHeadNode
 
 
-from SinglyLinkedList import Node 
 
 headNode = Node(10, Node(1,
                 Node(6,

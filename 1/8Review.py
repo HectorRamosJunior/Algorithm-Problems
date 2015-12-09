@@ -3,6 +3,8 @@
   its entire row and column are set to 0.
 """
 
+#Creates two hash sets for the columns and rows with a 0
+#Then iterates through and sets those to 0 at the end. 
 def zeroMatrix(m):
     matrix = [x[:] for x in m]
 
@@ -28,9 +30,15 @@ def zeroMatrix(m):
 
     return matrix
 
+
+#Sets the first row and column to 0 only, requires extra data structure
+#However at the end this requires that the first row or column
+#Is set to be all 0's after every other element is set
 def zeroMatrix2(m):
     matrix = [x[:] for x in m]
 
+    #Placeholders if the first row and column are
+    #To be set to all 0 at the very end
     firstRow = False
     firstCol = False
 
@@ -46,6 +54,9 @@ def zeroMatrix2(m):
                 if col > 0:
                     matrix[0][col] = 0
 
+    #Iterates through the first row/col looking to set the entire
+    #Row or column to 0 if a 0 is found.
+    #Ignores element [0][0] when iterating, would set all to 0
     for row in xrange(1, len(matrix)):
         if matrix[row][0] == 0:
             for col in xrange(1, len(matrix[0])):
@@ -57,6 +68,7 @@ def zeroMatrix2(m):
                 matrix[row][col] = 0
 
 
+    #Set first row/col to 0 if called for
     if firstRow:
         for x in xrange(len(matrix[0])):
             matrix[0][x] = 0
