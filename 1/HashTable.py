@@ -2,12 +2,6 @@
 Hash Table Implementation
 Hector Ramos, 12/6/2015
 """
-class Node(object):
-    def __init__(self, key, value):
-        self.key = key
-        self.value = value
-        self.next = None
-
 
 class HashTable(object):
 
@@ -32,7 +26,7 @@ class HashTable(object):
         index = hash(key) % capacity
 
         if not bucketList[index]:
-            bucketList[index] = Node(key, value)
+            bucketList[index] = HashTable.Node(key, value)
             return True
         else:
             node = bucketList[index]
@@ -42,7 +36,7 @@ class HashTable(object):
                     node.value = value
                     break
                 elif not node.next:
-                    node.next = Node(key, value)
+                    node.next = HashTable.Node(key, value)
                     break
                 else:
                     node = node.next
@@ -98,15 +92,8 @@ class HashTable(object):
 
                 node = node.next
 
-
-
-h = HashTable()
-
-[h.add(x,x) for x in xrange(100)]
-
-print h.bucketList
-print h.capacity, h.filled
-
-print [h.get(x) for x in xrange(100)]
-[h.remove(x) for x in xrange(50)]
-print [h.get(x) for x in xrange(100)]
+    class Node(object):
+        def __init__(self, key, value):
+            self.key = key
+            self.value = value
+            self.next = None
