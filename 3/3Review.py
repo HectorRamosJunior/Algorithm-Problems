@@ -15,28 +15,30 @@
 """
 from Stack import Stack 
 
+#SetofStacks holds each stack in a node in a node linked list stack
+#The nodes each hold a stack, the capacity it set at initialization
 class SetofStacks(object):
 
     def __init__(self, capacity = 100):
-        self.currentNode = None
+        self.currentStack = None
         self.capacity = capacity
 
     def push(self, item):
-        if not self.currentNode:
-            self.currentNode = self.Node(Stack())
-        elif self.currentNode.stack.length >= self.capacity:
-            self.currentNode = self.Node(Stack(), self.currentNode)
+        if not self.currentStack:
+            self.currentStack = self.Node(Stack())
+        elif self.currentStack.stack.length >= self.capacity:
+            self.currentStack = self.Node(Stack(), self.currentStack)
 
-        self.currentNode.stack.push(item)
+        self.currentStack.stack.push(item)
 
     def pop(self):
-        if not self.currentNode:
+        if not self.currentStack:
             return None
-        elif self.currentNode.stack.isEmpty():
-            self.currentNode = self.currentNode.next
+        elif self.currentStack.stack.isEmpty():
+            self.currentStack = self.currentStack.next
             return self.pop()
         else:
-            return self.currentNode.stack.pop()
+            return self.currentStack.stack.pop()
 
     class Node(object):
         def __init__(self, stack, next = None):
@@ -44,22 +46,22 @@ class SetofStacks(object):
             self.next = next
 
 
-s = SetofStacks()
+s = SetofStacks(25)
 
-for x in xrange(300):
+for x in xrange(75):
     s.push(x+1)
 
-current = s.currentNode
+current = s.currentStack
 while current:
     print "Stack:"
     current.stack.printStack()
     current = current.next
 
-for x in xrange(190):
+for x in xrange(60):
     s.pop()
 
-current = s.currentNode
+current = s.currentStack
 while current:
-    print "Stack:"
+    print "Final Stacks:"
     current.stack.printStack()
     current = current.next

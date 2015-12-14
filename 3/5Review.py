@@ -6,6 +6,11 @@
 """
 from Stack import Stack 
 
+
+#Uses one variable to hold onto the max node and place it at 
+#the bottom of the stack. Then the second iteration does the same 
+#but goes to the second to last element instead (last node is the max)
+#Repeat until stack is sorted from smallest to biggest
 def sortStack(stack):
     depth = getDepth(stack)
     unsorted = depth 

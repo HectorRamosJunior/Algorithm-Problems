@@ -5,6 +5,10 @@
 """
 from Stack import Stack 
 
+#The oldStack is used for popping and peeking. If the oldStack
+#is empty, the new stack which is purely used for pushing elements
+#has its order reversed (pushed) to the oldStack, which would now
+#have the first items into the queue ordered in its stack. 
 class Queue(object):
 
     def __init__(self):

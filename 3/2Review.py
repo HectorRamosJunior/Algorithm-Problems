@@ -6,6 +6,8 @@
 
 from Stack import Stack 
 
+#Each node in the stack records the stack's min before appending
+#This allows the minimum to be read regardless of the stack's state
 class minStack(Stack):
 
     def push(self, item):

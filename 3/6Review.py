@@ -13,6 +13,11 @@
 from Queue import Queue
 from random import randint
 
+
+#Holds two queues, cat and dog. Each are given the pet's name and 
+#ID for the order they came in with. DequeueAny compares this and 
+#returns the pet with the lowest number.
+#Note: Each animal node has a tuple for the value, (id, name)
 class ShelterQueue(object):
 
     def __init__(self):

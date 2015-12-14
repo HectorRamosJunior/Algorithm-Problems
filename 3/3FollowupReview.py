@@ -15,6 +15,7 @@
 """
 from Stack import Stack 
 
+#Added the function popAt to the Stack Class
 class Stack(Stack):
     #Zero Indexed!
     def popAt(self, index):
@@ -40,7 +41,8 @@ class Stack(Stack):
 
 
 #Uses Stack.popAt(index) to pop from the wanted stack.
-#It then pushes the last index of each stack after to the previous
+#It then pushes the last index of each stack after the index to
+#the previous stack before it; keeping them at max capacity
 class SetofStacks(object):
     def __init__(self, capacity = 100):
         self.stackList = []
