@@ -1,6 +1,10 @@
 '''
     Validate BST: 
     Implement a function to check if a binary tree is a binary search tree.
+
+    Note to future self:
+    This is the question that got my first interview with Bloomberg,
+    went to the final round of interviews up to head of R&D.
 '''
 from Node import Node
 import sys

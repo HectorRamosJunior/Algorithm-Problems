@@ -9,6 +9,7 @@ class Node(object):
         self.value = value
         self.left = left 
         self.right = right
+        self.parent = None
 
     def printTree(self):
         print self.value
@@ -17,3 +18,6 @@ class Node(object):
             self.left.printTree()
         if self.right:
             self.right.printTree()
+
+    def __str__(self):
+        return "Node with value: %s" % self.value
