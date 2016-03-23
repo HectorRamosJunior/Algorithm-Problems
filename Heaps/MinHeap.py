@@ -1,7 +1,7 @@
 """
     Min Heap Class
     Hector Ramos
-    3/22/2016
+    3/23/2016
 """
 # Binary Min Heap Using a Heap List
 class MinHeap(object):
@@ -32,7 +32,7 @@ class MinHeap(object):
         return output
 
 
-    # Percolate the leftmost element up the tree as necessary
+    # Percolate the last element up the tree as necessary
     # To maintain Parent <= Child property of the tree
     def percolate_up(self):
         # The parent of a node(index) is found at (index - 1) / 2
@@ -93,6 +93,7 @@ class MinHeap(object):
     def print_heap(self):
         if not self.heap_list:
             print "Heap has no elements!"
+            return 
 
         depthValues = []
         depth = 0
