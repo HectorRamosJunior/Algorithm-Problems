@@ -1,6 +1,6 @@
 """
-        Write code to reverse digits in an integer 
-        without converting it to a string.
+    Write code to reverse digits in an integer 
+    without converting it to a string.
 """
 
 def reverseDigits(num):
