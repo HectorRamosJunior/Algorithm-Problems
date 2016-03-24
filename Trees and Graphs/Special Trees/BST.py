@@ -1,7 +1,7 @@
 """
     BST Class
     Hector Ramos
-    12/9/2015
+    3/23/2015
 """
 # Class for a Binary Search Tree, nodes don't have links to parents
 class BST(object):
