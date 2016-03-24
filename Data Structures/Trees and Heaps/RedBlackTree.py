@@ -1,8 +1,10 @@
 """
     Red Black Tree Class
+    Only handles insertions currently, will add deletion later
     Hector Ramos
     12/9/2015
 """
+from random import randint
 
 class RedBlackTree(object):
     def __init__(self):
@@ -124,6 +126,9 @@ class RedBlackTree(object):
             parent.right = node.left
             node.left = parent
 
+        node.parent = parent.parent
+        parent.parent = node
+
         # Handle grandparent reassignment to 'new' parent node
         if grandparent and parent is grandparent.right:
             grandparent.right = node
@@ -180,6 +185,6 @@ class RedBlackTree(object):
 
 rbt = RedBlackTree()
 
-[rbt.add(x) for x in xrange(1,7)]
+[rbt.add(randint(1,100)) for x in xrange(10)]
 
 rbt.print_tree()
