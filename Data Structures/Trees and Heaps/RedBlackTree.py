@@ -4,7 +4,6 @@
     Hector Ramos
     12/9/2015
 """
-from random import randint
 
 class RedBlackTree(object):
     def __init__(self):
@@ -191,6 +190,7 @@ class RedBlackTree(object):
             self.right = right
             self.parent = parent
 
+from random import randint
 
 rbt = RedBlackTree()
 [rbt.add(randint(1,100)) for x in xrange(100)]

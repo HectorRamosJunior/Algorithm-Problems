@@ -75,7 +75,6 @@ class AVLTree(object):
         self.update_height(rotated.right)
 
 
-
     # Rebalances the right subtree, updates heights of moved nodes
     def rebalance_and_update_right(self, node):
         right_child = node.right
@@ -136,7 +135,7 @@ class AVLTree(object):
 
         return node
 
-
+        
     # Returns left and right subtree heights for given node
     def get_subtree_heights(self, node):
         # Define left and right heights. Null is 0 height
