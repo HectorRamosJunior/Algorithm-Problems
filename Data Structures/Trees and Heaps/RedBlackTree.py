@@ -64,6 +64,9 @@ class RedBlackTree(object):
             uncle = grandparent.left
         elif parent is grandparent.left:
             uncle = grandparent.right
+        else:
+            print node.value
+            self.print_tree()
 
         # Case 3: if Node, Uncle and Parent are red
         if uncle and parent.color and uncle.color:
@@ -96,11 +99,7 @@ class RedBlackTree(object):
         if node_on_inside:
             print "Case 4 enacted on node %d." % node.value
             # Rotate node around parent to make node on outside of tree
-            self.rotate_node_around_parent(node)
-
-            # Reassign parent and node to reflect rotation
-            # Case 4 hands off to Case 5 after rotating node to outside
-            parent, node = node, parent
+            parent = self.rotate_node_around_parent(node)
 
         # Case 5: Parent is red and Uncle is black, node on outside of tree
         # Case 5 calls for rotating the parent around its grandparent
@@ -120,10 +119,18 @@ class RedBlackTree(object):
         # Rotate node right
         if node is parent.left:
             parent.left = node.right
+            # If handed off subtree exists, set new parent
+            if node.right:
+                node.right.parent = parent 
+
             node.right = parent
         # Rotate node left
         elif node is parent.right:
             parent.right = node.left
+            # If handed off subtree exists, set new parent
+            if node.left:
+                node.left.parent = parent 
+
             node.left = parent
 
         node.parent = parent.parent
@@ -137,6 +144,8 @@ class RedBlackTree(object):
         # If no grandparent, parent was root, reassign
         else:
             self.root = node
+
+        return node
 
 
     # Prints the tree by depth
@@ -184,7 +193,5 @@ class RedBlackTree(object):
 
 
 rbt = RedBlackTree()
-
-[rbt.add(randint(1,100)) for x in xrange(10)]
-
+[rbt.add(randint(1,100)) for x in xrange(100)]
 rbt.print_tree()
