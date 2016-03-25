@@ -9,7 +9,6 @@ class AVLTree(object):
     def __init__(self):
         self.root = None
 
-
     def add(self, value, node = None):
         # If first time add was called, root doesn't exist
         if not node and not self.root:
@@ -51,7 +50,6 @@ class AVLTree(object):
         # Update height of current node
         self.update_height(node)
 
-
     # Rebalances the left subtree, updates heights of moved nodes
     def rebalance_and_update_left(self, node):
         left_child = node.left
@@ -73,7 +71,6 @@ class AVLTree(object):
         # Update rotated node heights
         self.update_height(rotated)
         self.update_height(rotated.right)
-
 
     # Rebalances the right subtree, updates heights of moved nodes
     def rebalance_and_update_right(self, node):
@@ -97,7 +94,6 @@ class AVLTree(object):
         # Update rotated node heights
         self.update_height(rotated)
         self.update_height(rotated.left)
-
 
     # Rotates child node around its parent node, returns new parent node
     # Assumes parent exists
@@ -134,8 +130,7 @@ class AVLTree(object):
             grandparent.right = node
 
         return node
-
-        
+   
     # Returns left and right subtree heights for given node
     def get_subtree_heights(self, node):
         # Define left and right heights. Null is 0 height
@@ -150,13 +145,11 @@ class AVLTree(object):
 
         return left_height, right_height
 
-
     # Updates the height of a node by looking at its subtrees
     def update_height(self, node):
         left_height, right_height = self.get_subtree_heights(node)
 
         node.height = max(left_height, right_height) + 1
-
 
     # Prints depths of tree list by list
     def print_tree(self):
@@ -193,7 +186,6 @@ class AVLTree(object):
 
         # For newline
         print
-
 
     @staticmethod
     class Node(object):

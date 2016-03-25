@@ -141,7 +141,4 @@ class SplayTree(object):
 from random import randint
 
 splay = SplayTree()
-#[(splay.add(randint(1,100)), splay.print_tree()) for x in xrange(10)]
-
-test_list = [5, 10, 15, 6, 9, 7, 11, 4, 12]
-[(splay.add(x), splay.print_tree()) for x in test_list]
+[(splay.add(randint(1,100)), splay.print_tree()) for x in xrange(10)]

@@ -9,7 +9,6 @@ class RedBlackTree(object):
     def __init__(self):
         self.root = None
 
-
     def add(self, value):
         # Set root equal to new node, set root equal to black
         if not self.root:
@@ -39,7 +38,6 @@ class RedBlackTree(object):
 
         # Check if any violations occured and corrects the tree
         self.rebalance(new_node)
-
 
     # Checks insertion cases for violations and rebalances if so
     def rebalance(self, node):
@@ -83,7 +81,6 @@ class RedBlackTree(object):
         # Cases 4 and 5 have the parent as red and uncle as black
         self.pivot_and_rebalance(node, parent, grandparent)
 
-
     # Handle insertion cases 4 and 5
     def pivot_and_rebalance(self, node, parent, grandparent):
         # Check if the node is on the inside of the subtree
@@ -108,7 +105,6 @@ class RedBlackTree(object):
         parent.color = False
         grandparent.color = True
         print "Case 5 enacted on node %d." % node.value
-
 
     # Function assumes node has a parent
     def rotate_node_around_parent(self, node):
@@ -146,7 +142,6 @@ class RedBlackTree(object):
 
         return node
 
-
     # Prints the tree by depth
     def print_tree(self):
         if not self.root:
@@ -177,7 +172,6 @@ class RedBlackTree(object):
 
                 print depth_list
                 depth_list = []
-
 
     @staticmethod
     class Node(object):
