@@ -2,7 +2,7 @@
     AVL Tree Class
     Only handles insertions currently, will add deletion later
     Hector Ramos
-    12/9/2015
+    03/25/2016
 """
 
 class AVLTree(object):

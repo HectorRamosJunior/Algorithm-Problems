@@ -2,7 +2,7 @@
     Red Black Tree Class
     Only handles insertions currently, will add deletion later
     Hector Ramos
-    12/9/2015
+    03/24/2016
 """
 
 class RedBlackTree(object):
