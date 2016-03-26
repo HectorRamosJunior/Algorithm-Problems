@@ -26,6 +26,9 @@ class MaxHeap(object):
 
         # Store the top element to return after heap structure is maintained
         output = self.heap_list[0]
+        # Set Heap root equal to leftmost element to maintain tree balance
+        self.heap_list[0] = self.heap_list.pop()
+
         # Restructure the heap to keep balance after root is popped
         self.percolate_down()
 
@@ -57,9 +60,6 @@ class MaxHeap(object):
     # Percolate the last element down the heap from the root
     # This maintains the heap balance and structure
     def percolate_down(self):
-        # Set root to last element added to maintain heap balance
-        self.heap_list[0] = self.heap_list.pop()
-
         # Children of the current index are located at (index * 2) +1 or +2
         current_index = 0
         child_index1 = (current_index * 2) + 1
