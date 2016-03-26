@@ -17,9 +17,10 @@ class RedBlackTree(object):
             return
 
         current_node = self.root
+        new_node = False
 
         # Add new element to BST
-        while True:
+        while new_node:
             # Traverse left if value less than current_node
             if value < current_node.value:
                 if current_node.left:
@@ -27,14 +28,13 @@ class RedBlackTree(object):
                 else:
                     new_node = RedBlackTree.Node(value, parent=current_node)
                     current_node.left = new_node
-                    break
             elif value >= current_node.value:
                 if current_node.right:
                     current_node = current_node.right
                 else:
                     new_node = RedBlackTree.Node(value, parent=current_node)
                     current_node.right = new_node
-                    break
+
 
         # Check if any violations occured and corrects the tree
         self.rebalance(new_node)

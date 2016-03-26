@@ -13,9 +13,9 @@ def quick_sort(array):
     quick_sort_helper(array, 0, len(array) - 1)
     return array
 
-# Sorts array recursive pivot sorts
+# Sorts array with recursive subarray sorts around randomly selected pivots
 def quick_sort_helper(array, start_index, end_index):
-    # Handle if subarray only 1 index long it's already sorted
+    # If subarray only 1 index long it's already sorted
     if end_index - start_index == 0:
         return
 
@@ -28,12 +28,12 @@ def quick_sort_helper(array, start_index, end_index):
 
     # Sorts the subarray around the pivot.
     # Sort is finished anytime the indexes pass each other (left > right)
-    while left_index < right_index:
+    while left_index <= right_index:
         # Iterate left_index forward until an index >= pivot is found
-        while array[left_index] < pivot and left_index < right_index:
+        while array[left_index] < pivot and left_index <= right_index:
             left_index += 1
         # Iterate right_index backward until an index <= pivot is found
-        while array[right_index] > pivot and left_index < right_index:
+        while array[right_index] > pivot and left_index <= right_index:
             right_index -= 1
 
         # Catch if nested loops ended the sort (left > right)
