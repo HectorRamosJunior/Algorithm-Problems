@@ -50,7 +50,7 @@ def dijkstra(start_node, end_node):
     # Reverse path list, since it traversed from end to start
     path_list.reverse()
 
-    print "Total path weight is %d." % end_node.weight
+    #print "Total path weight is %d." % end_node.weight
     return path_list
 
 # Returns the popped min weight node from the given dict
@@ -75,18 +75,19 @@ class Node(object):
         # Stores the shortest path connected node
         self.prev = None
 
-# Graph taken from below URL
-# http://www.reviewmylife.co.uk/data/2008/0715/dijkstras-graph.gif
-nodeA = Node("A"); nodeB = Node("B"); nodeC = Node("C")
-nodeD = Node("D"); nodeE = Node("E"); nodeF = Node("F"); 
-nodeG = Node("G");
+if __name__ == "__main__":
+    # Graph taken from below URL
+    # http://www.reviewmylife.co.uk/data/2008/0715/dijkstras-graph.gif
+    nodeA = Node("A"); nodeB = Node("B"); nodeC = Node("C")
+    nodeD = Node("D"); nodeE = Node("E"); nodeF = Node("F"); 
+    nodeG = Node("G");
 
-nodeA.edge_list = [(nodeC, 1), (nodeD, 2)]
-nodeB.edge_list = [(nodeC, 2), (nodeF, 3)]
-nodeC.edge_list = [(nodeA, 1), (nodeB, 2), (nodeD, 1), (nodeE, 3)]
-nodeD.edge_list = [(nodeA, 2), (nodeC, 1), (nodeG, 1)]
-nodeE.edge_list = [(nodeC, 3), (nodeF, 2)]
-nodeF.edge_list = [(nodeB, 3), (nodeE, 2), (nodeG, 1)]
-nodeG.edge_list = [(nodeD, 1), (nodeF, 1)]
+    nodeA.edge_list = [(nodeC, 1), (nodeD, 2)]
+    nodeB.edge_list = [(nodeC, 2), (nodeF, 3)]
+    nodeC.edge_list = [(nodeA, 1), (nodeB, 2), (nodeD, 1), (nodeE, 3)]
+    nodeD.edge_list = [(nodeA, 2), (nodeC, 1), (nodeG, 1)]
+    nodeE.edge_list = [(nodeC, 3), (nodeF, 2)]
+    nodeF.edge_list = [(nodeB, 3), (nodeE, 2), (nodeG, 1)]
+    nodeG.edge_list = [(nodeD, 1), (nodeF, 1)]
 
-print dijkstra(nodeA, nodeF)
+    print dijkstra(nodeA, nodeF)

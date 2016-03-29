@@ -116,26 +116,28 @@ class Node(object):
     def __str__(self):
         return self.key
 
-# Map is represented as a 2d array of nodes.
-# For each index, nearby 8 indices are valid as long as index isn't Null
-game_map = [[Node(key=str(x)+str(y)+"  ", matrix_indices=(x,y)) for y in xrange(10)] for x in xrange(10)]
+if __name__ == "__main__":
+    from random import randint 
+    
+    # Map is represented as a 2d array of nodes.
+    # For each index, nearby 8 indices are valid as long as index isn't Null
+    game_map = [[Node(key=str(x)+str(y)+"  ", matrix_indices=(x,y)) for y in xrange(10)] for x in xrange(10)]
 
-from random import randint 
-# Set 25 random elements to None
-for i in xrange(75):
-    game_map[randint(0,9)][randint(0,9)] = None 
+    # Set 25 random elements to None
+    for i in xrange(75):
+        game_map[randint(0,9)][randint(0,9)] = None 
 
-start_node, end_node = None, None
-while not start_node or not end_node:
-    start_node = game_map[randint(0,9)][randint(0,9)]
-    end_node = game_map[randint(0,9)][randint(0,9)]
+    start_node, end_node = None, None
+    while not start_node or not end_node:
+        start_node = game_map[randint(0,9)][randint(0,9)]
+        end_node = game_map[randint(0,9)][randint(0,9)]
 
-for row in game_map:
-    row_list = []
-    for node in row:
-        row_list.append(str(node))
+    for row in game_map:
+        row_list = []
+        for node in row:
+            row_list.append(str(node))
 
-    print row_list
+        print row_list
 
-print "The shortest path is: "
-print get_shortest_path(game_map, start_node, end_node)
+    print "The shortest path is: "
+    print get_shortest_path(game_map, start_node, end_node)
