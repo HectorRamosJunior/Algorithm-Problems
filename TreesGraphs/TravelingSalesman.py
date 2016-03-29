@@ -2,7 +2,7 @@
     Traveling Salesman Solution
     Employs Dijkstra's algorithm
     Hector Ramos
-    3/25/2016
+    3/28/2016
 """
 import DijkstrasAlgorithm as dijk
 from random import shuffle
@@ -10,7 +10,7 @@ import sys
 
 # Tests random permutation orders of the given map
 # Once a path hasn't been replaced by a more efficient one after
-# 10 permutations, that permutation is returned
+# len(nodes)^2 permutations, that permutation is returned
 def traveling_salesman(node_list):
     # Assigns local node_list to a copy of the list to not modify original
     shuffled_list = list(node_list)
@@ -22,7 +22,7 @@ def traveling_salesman(node_list):
     shortest_path_test_count = 0
     shortest_path_weight = sys.maxint
 
-    while shortest_path_test_count <= 50:
+    while shortest_path_test_count <= len(node_list)**2:
         tested_permutations.add(get_node_keys_as_string(shuffled_list))
 
         # Get total weight for new node visit order
@@ -45,7 +45,7 @@ def traveling_salesman(node_list):
 
         new_permutation_attempts = 0
         while (get_node_keys_as_string(shuffled_list) in tested_permutations
-                and new_permutation_attempts < 50):
+                and new_permutation_attempts < len(node_list)**2):
             shuffle(shuffled_list)
             new_permutation_attempts += 1
 
