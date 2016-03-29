@@ -6,6 +6,10 @@
     3/29/2016
 """
 
+# Returns a list of the items to take to optimize value when given
+# A variety of items of certain weights to fit into a bag of weight X
+# Employs a greedy algo for this, take the first highest metric if possible
+# And go down the items in order of the metric fitting what's possible
 def get_knapsack_list(node_list, max_weight):
     # Copy the list so as to not affect the original with sorts
     sorted_by_value = list(node_list)
@@ -124,6 +128,7 @@ class Node(object):
         self.weight = weight
         self.metric = None
 
+# Returns a key string list representation of a list of nodes
 def get_node_keys_as_list(node_list):
     output_string = ""
     for i in xrange(len(node_list)):

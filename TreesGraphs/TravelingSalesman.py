@@ -16,16 +16,22 @@ def traveling_salesman(node_list):
     shuffled_list = list(node_list)
     shuffle(shuffled_list)
 
+    # Keeps track of permutations that have already been passed
     tested_permutations = set()
 
     shortest_path_list = []
     shortest_path_test_count = 0
     shortest_path_weight = sys.maxint
 
+    # Loop keeps testing random permutations of the order to visit 
+    # The map's nodes in until the recent list hasn't been replaced by 
+    # A more efficient one after len(node_list)^2 iterations
     while shortest_path_test_count <= len(node_list)**2:
+        # Add current permutation to set
         tested_permutations.add(get_node_keys_as_string(shuffled_list))
 
-        # Get total weight for new node visit order
+        # Get total weight for new node visit order, uses dijkstra's
+        # For the shortest path between nodes in the visit order
         new_weight = 0
         for i in xrange(len(shuffled_list) - 1):
             dijk.dijkstra(shuffled_list[i], shuffled_list[i+1])
@@ -36,21 +42,25 @@ def traveling_salesman(node_list):
                 node.weight = sys.maxint
                 node.prev = None
 
+        # Replace shortest path if new permutation is faster
         if new_weight < shortest_path_weight:
             shortest_path_weight = new_weight
             shortest_path_test_count = 0
             shortest_path_list = list(shuffled_list)
+        # Otherwise add 1 to the number of times current solution stayed
         else:
             shortest_path_test_count += 1
 
+        # Randomly permutate new node visit order for the graph
         new_permutation_attempts = 0
         while (get_node_keys_as_string(shuffled_list) in tested_permutations
                 and new_permutation_attempts < len(node_list)**2):
             shuffle(shuffled_list)
             new_permutation_attempts += 1
 
-        # End, take current shortest path if new list not found
-        if new_permutation_attempts == 50:
+        # If new permutation to test not found within len(node_list)**2
+        # Attempts, just accept current shortest list as the solution
+        if new_permutation_attempts == len(node_list)**2:
             break
 
 
