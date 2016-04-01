@@ -34,7 +34,7 @@ def graph_coloring(vertex, max_colors, vertex_colors, adjacency_matrix):
                 return True
 
             # Reset vertex color if a graph coloring wasn't possible
-            vertex_colors[vertex] = False
+            vertex_colors[vertex] = None
 
     # There is no possible coloring of this vertex that is valid
     return False
