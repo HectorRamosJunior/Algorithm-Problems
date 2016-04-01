@@ -25,7 +25,7 @@ def graph_coloring(vertex, max_colors, vertex_colors, adjacency_matrix):
 
     # Checks if current vertex can be any valid color
     for color in xrange(max_colors):
-        if isSafe(vertex, color, vertex_colors, adjacency_matrix):
+        if is_safe(vertex, color, vertex_colors, adjacency_matrix):
             vertex_colors[vertex] = color
 
             # Checks if graph can be made with current vertex's color
@@ -34,7 +34,7 @@ def graph_coloring(vertex, max_colors, vertex_colors, adjacency_matrix):
                 return True
 
             # Reset vertex color if a graph coloring wasn't possible
-            vertex_colors[vertex] = None
+            vertex_colors[vertex] = False
 
     # There is no possible coloring of this vertex that is valid
     return False
