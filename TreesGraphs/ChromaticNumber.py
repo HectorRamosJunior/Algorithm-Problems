@@ -7,7 +7,7 @@
 
 # Checks the current vertex's adjacent vertexes to see if they are the
 # current vertex's desired color. If so, return false.
-def isSafe(vertex, color, vertex_colors, adjacency_matrix):
+def is_safe(vertex, color, vertex_colors, adjacency_matrix):
     for adjacent_vertex in xrange(len(adjacency_matrix[0])):
         if adjacency_matrix[vertex][adjacent_vertex]:
             if vertex_colors[adjacent_vertex] == color:
