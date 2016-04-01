@@ -5,8 +5,8 @@
     4/1/2016
 """
 
-# Checks the current vertex's adjacent vertexes to see if they are 
-# The desired color. If so, the current vertex cannot be colored such.
+# Checks the current vertex's adjacent vertexes to see if they are the
+# current vertex's desired color. If so, return false.
 def isSafe(vertex, color, vertex_colors, adjacency_matrix):
     for adjacent_vertex in xrange(len(adjacency_matrix[0])):
         if adjacency_matrix[vertex][adjacent_vertex]:
@@ -23,17 +23,20 @@ def graph_coloring(vertex, max_colors, vertex_colors, adjacency_matrix):
     if vertex >= len(vertex_colors):
         return True
 
+    # Checks if current vertex can be any valid color
     for color in xrange(max_colors):
         if isSafe(vertex, color, vertex_colors, adjacency_matrix):
             vertex_colors[vertex] = color
 
+            # Checks if graph can be made with current vertex's color
             if graph_coloring(vertex + 1, max_colors, 
                                 vertex_colors, adjacency_matrix):
                 return True
 
-            vertex_colors[vertex] = 0
+            # Reset vertex color if a graph coloring wasn't possible
+            vertex_colors[vertex] = None
 
-    # There is no possible coloring of this vertex
+    # There is no possible coloring of this vertex that is valid
     return False
 
 # Finds the chromatic number for the given graph, and returns its 
@@ -44,6 +47,7 @@ def chromatic_number_coloring(adjacency_matrix):
     num_vertexes = len(adjacency_matrix[0])
     vertex_colors = []
 
+    # Checks increasing chromatic numbers until one properly colors graph
     while chromatic_number <= num_vertexes:
         vertex_colors = [None for i in xrange(num_vertexes)]
         
