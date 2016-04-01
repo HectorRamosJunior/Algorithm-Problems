@@ -62,6 +62,8 @@ def chromatic_number_coloring(adjacency_matrix):
     # This shouldn't happen?
     return False
 
+# Print the number of colors in the graph, and prints the nodes
+# That are each specific color.
 def print_vertex_colors(vertex_colors):
     color_dict = {}
 
