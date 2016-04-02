@@ -34,7 +34,7 @@ def graph_coloring(vertex_list):
         # Appends new color to the vertex/color_dict if there were none valid
         if not vertex.color:
             new_color = len(color_dict) + 1
-
+            # Assign new color to vertex, append new color to dict
             vertex.color = new_color
             color_dict[new_color] = [vertex.key]
 
@@ -45,9 +45,11 @@ def graph_coloring(vertex_list):
 def print_color_dict(color_dict):
     print "This graph has %d colors.\n" %len(color_dict)
 
+    # Iterate through each color in the dictionary
     for color in color_dict:
         string_of_vertexes = ""
 
+        # Add each vertex to string for the given color
         for vertex_key in color_dict[color]:
             string_of_vertexes += vertex_key + " "
 
