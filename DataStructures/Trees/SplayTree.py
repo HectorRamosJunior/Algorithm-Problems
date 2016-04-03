@@ -15,7 +15,7 @@ class SplayTree(object):
             return
 
         node = self.root
-        new_node = None     # To be defined 
+        new_node = None
 
         # Standard BST add algo, finds appropiate location to add node
         while not new_node:
@@ -23,14 +23,12 @@ class SplayTree(object):
                 if node.left:
                     node = node.left
                 else:
-                    # new_node gets passed to splay function later
                     new_node = SplayTree.Node(value, parent=node)
                     node.left = new_node
             elif value >= node.value:
                 if node.right:
                     node = node.right
                 else:
-                    # new_node gets passed to splay function later
                     new_node = SplayTree.Node(value, parent=node)
                     node.right = new_node
 
