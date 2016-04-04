@@ -1,5 +1,6 @@
-# Algorithm Problem Solutions
+# Learning Materials Repo
 My solutions to various algorithm problems. This is the bulk of my study material.
+These are the problems I used to learn the data structures and algorithms listed under each folder.
 
 The problems are included in the py files at the top, feel free to point out any possible improvements!
 
