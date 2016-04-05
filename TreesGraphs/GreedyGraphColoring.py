@@ -23,13 +23,11 @@ def graph_coloring(vertex_list):
     for vertex in vertex_list:
         # Checks if any present colors in the graph can work for this vertex
         for color in color_dict:
-            # Handle if this loop already colored the vertex
-            if vertex.color:
-                break
             # Handle if this vertex can be colored with a present color
-            elif is_safe(vertex, color):
+            if is_safe(vertex, color):
                 vertex.color = color
                 color_dict[color].append(vertex.key)
+                break 
 
         # Appends new color to the vertex/color_dict if there were none valid
         if not vertex.color:
