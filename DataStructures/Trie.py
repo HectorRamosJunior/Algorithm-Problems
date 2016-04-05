@@ -23,7 +23,7 @@ class Trie(object):
         # Traverse through trie for each character in the string
         while current_string:
             # Find the character index for the current first character in string
-            index = get_character_index(current_string[0])
+            index = self.get_character_index(current_string[0])
 
             # If there isn't a node at this index yet, make one
             if not current_node.character_array[index]:
@@ -46,7 +46,7 @@ class Trie(object):
         # Traverse through trie for each character in the string
         while current_string:
             # Find the character index for the current first character in string
-            index = get_character_index(current_string[0])
+            index = self.get_character_index(current_string[0])
 
             # If there's no path to the word, this word doesn't exist in trie
             if not current_node.character_array[index]:
@@ -66,7 +66,7 @@ class Trie(object):
 
     # Given its own function for readability. Assumes character is an english
     # alphabet character, and returns its given index in the array of pointers
-    def get_character_index(self, c):
+    def get_character_index(self, character):
         # Ord returns an integer representation for a ASCII string
         # lower converts the character to lowercase if it's in uppercase
         index = ord(character.lower())
@@ -74,7 +74,7 @@ class Trie(object):
         # Subtract that, then take the mod it by 26(# of chars) to get the index
         index = (index - 97) % 26
 
-        return  index = (ord(character.lower()) - 97) % 26
+        return  index
          
     @staticmethod
     class TrieNode(object):
@@ -86,22 +86,23 @@ class Trie(object):
 if __name__ == "__main__":
     trie = Trie()
 
+    print "Adding Bat, Bath, Test, Zebra and Zebras to trie."
     trie.add("Bat")
     trie.add("Bath")
     trie.add("Test")
     trie.add("Zebra")
     trie.add("Zebras")
 
-    print "Should all be true (Case insensitive)"
-    print trie.search("Bat")
-    print trie.search("Bath")
-    print trie.search("Test")
-    print trie.search("test")
-    print trie.search("zebra")
-    print trie.search("zebras")
+    print "\nShould all be true (Case insensitive)"
+    print "Bat is in the trie: ", trie.search("Bat")
+    print "Bath is in the trie: ", trie.search("Bath")
+    print "Test is in the trie: ", trie.search("Test")
+    print "test is in the trie: ", trie.search("test")
+    print "zebra is in the trie: ", trie.search("zebra")
+    print "zebras is in the trie: ", trie.search("zebras")
 
-    print "Should all be false"
-    print trie.search("Baths")
-    print trie.search("tests")
-    print trie.search("Bats")
-    print trie.search("tests")
+    print "\nShould all be false"
+    print "Baths is in the trie: ", trie.search("Baths")
+    print "tests is in the trie: ", trie.search("tests")
+    print "Bats is in the trie: ", trie.search("Bats")
+    print "exams is in the trie: ", trie.search("exams")
