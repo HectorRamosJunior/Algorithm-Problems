@@ -1,8 +1,8 @@
-# Learning Materials Repo
-These are the problems I used to learn the data structures and algorithms listed under each folder. This is the bulk of my study material.
+# Algorithms and Data Structures
+My personal implementations of unique data structures is in the data structures folder, the others are all interesting algorithm solutions to interesting problems done in efficient time and space complexities.
 
 
-The problems are included in the py files at the top, feel free to point out any possible improvements!
+The problem descriptions are included as a dosctrings in the py files at the top, feel free to point out any possible improvements!
 
 
 **To review concepts I have done some problems multiple times after a long break.**
